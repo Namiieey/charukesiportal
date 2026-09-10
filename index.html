@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Charukesi Sangeetha Nirtha Kalashetram</title>
+  <!-- Google Font & Font Awesome for icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(145deg, #fff9f2 0%, #fde9dc 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      color: #2d1e17;
+    }
+
+    .portal {
+      max-width: 820px;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: 3.5rem;
+      box-shadow: 0 30px 50px -20px rgba(160, 100, 60, 0.3), 
+                  inset 0 1px 4px rgba(255, 255, 255, 0.8);
+      padding: 2.5rem 2rem 2rem;
+      border: 1px solid rgba(255, 235, 215, 0.7);
+      transition: all 0.3s ease;
+    }
+
+    /* Logo & School name */
+    .identity {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      margin-bottom: 2.25rem;
+    }
+
+    .logo-frame {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #f8dac2, #eec8aa);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 15px 30px -8px rgba(150, 90, 50, 0.3), 
+                  0 0 0 4px rgba(255, 245, 235, 0.9);
+      margin-bottom: 1.3rem;
+      transition: transform 0.2s;
+    }
+
+    .logo-frame img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #fff7f0;
+    }
+
+    .school-name {
+      font-size: 2.2rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      background: linear-gradient(115deg, #8b3e1f, #c45f2b, #a3461f);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      line-height: 1.25;
+      margin-bottom: 0.3rem;
+      text-shadow: 0 2px 10px rgba(200, 120, 70, 0.2);
+    }
+
+    .subhead {
+      font-size: 0.95rem;
+      font-weight: 400;
+      color: #6e4c38;
+      background: rgba(255, 240, 230, 0.7);
+      padding: 0.3rem 1.2rem;
+      border-radius: 100px;
+      letter-spacing: 0.3px;
+      border: 1px solid #f0d5c0;
+    }
+
+    /* Info grid / highlights */
+    .highlights {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.8rem 1.5rem;
+      margin: 1.6rem 0 1.8rem;
+    }
+
+    .pill {
+      background: #fef5ee;
+      border-radius: 40px;
+      padding: 0.5rem 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #5a3929;
+      box-shadow: 0 4px 8px rgba(210, 150, 110, 0.1);
+      border: 1px solid #ffe7d9;
+    }
+
+    .pill i {
+      color: #b85e2e;
+      font-size: 1rem;
+    }
+
+    /* Social link cards */
+    .social-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.2rem;
+      margin: 2rem 0 1.5rem;
+    }
+
+    .social-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: #ffffffd9;
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      border-radius: 2rem;
+      padding: 1.5rem 0.8rem;
+      text-decoration: none;
+      color: #2f211b;
+      transition: all 0.25s cubic-bezier(0.2, 0, 0, 1);
+      border: 1px solid #fff2e6;
+      box-shadow: 0 8px 18px -6px rgba(140, 80, 40, 0.15);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .social-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 20% 20%, rgba(255, 220, 190, 0.6), transparent 70%);
+      opacity: 0;
+      transition: opacity 0.3s;
+      pointer-events: none;
+    }
+
+    .social-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 18px 28px -12px rgba(180, 100, 50, 0.4);
+      border-color: #f3cfb8;
+    }
+
+    .social-card:hover::after {
+      opacity: 1;
+    }
+
+    .social-card i {
+      font-size: 2.2rem;
+      margin-bottom: 0.6rem;
+      transition: transform 0.2s;
+    }
+
+    .social-card:hover i {
+      transform: scale(1.08);
+    }
+
+    .social-card span {
+      font-weight: 600;
+      font-size: 0.9rem;
+      letter-spacing: 0.2px;
+      color: #4a2e20;
+    }
+
+    .instagram i { color: #d62976; }
+    .whatsapp i { color: #25D366; }
+    .youtube i { color: #FF0000; }
+
+    /* Instagram special hover (keep brand glow) */
+    .instagram:hover { border-color: #f5c6d9; }
+
+    /* YouTube subtext (small info from fetched data) */
+    .yt-stats {
+      font-size: 0.7rem;
+      font-weight: 400;
+      color: #8e6a55;
+      margin-top: 0.2rem;
+    }
+
+    /* Action row (call to action / contact) */
+    .contact-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1.5px dashed #edd7c9;
+      font-size: 0.9rem;
+      color: #754f38;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .contact-item i {
+      color: #b1542a;
+    }
+
+    /* fetch note / status snippet */
+    .fetch-note {
+      font-size: 0.7rem;
+      opacity: 0.7;
+      background: #fff2e9;
+      padding: 0.3rem 0.8rem;
+      border-radius: 30px;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      color: #7b5b48;
+      margin-top: 0.8rem;
+      border: 1px solid #f5ded0;
+    }
+
+    .fetch-note i {
+      font-size: 0.8rem;
+    }
+
+    /* footer */
+    .footer-note {
+      margin-top: 2rem;
+      font-size: 0.75rem;
+      color: #a1816e;
+      text-align: center;
+      opacity: 0.9;
+      letter-spacing: 0.2px;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 600px) {
+      .portal {
+        padding: 1.8rem 1.2rem;
+        border-radius: 2.5rem;
+      }
+
+      .school-name {
+        font-size: 1.7rem;
+      }
+
+      .social-grid {
+        grid-template-columns: 1fr;
+        gap: 0.9rem;
+      }
+
+      .social-card {
+        flex-direction: row;
+        justify-content: flex-start;
+        padding: 1.2rem 1.5rem;
+        gap: 1rem;
+        border-radius: 1.8rem;
+      }
+
+      .social-card i {
+        font-size: 1.8rem;
+        margin-bottom: 0;
+      }
+
+      .social-card span {
+        font-size: 1rem;
+      }
+
+      .yt-stats {
+        margin-left: auto;
+      }
+
+      .highlights {
+        gap: 0.6rem;
+      }
+
+      .logo-frame {
+        width: 100px;
+        height: 100px;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .social-card {
+        flex-wrap: wrap;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="portal">
+    <!-- Logo & identity -->
+    <div class="identity">
+      <div class="logo-frame">
+        <!-- Using provided logo URL, with fallback text if image fails -->
+        <img 
+          src="https://yt3.googleusercontent.com/t33AylQnyI7NN65ZTU2Y5tK9ZEhwlzO6oLAwAu0vOMoKjVELT3tnRnWhJqIW11lU3DaYU81IsKA=s160-c-k-c0x00ffffff-no-rj" 
+          alt="Charukesi Sangeetha Nirtha Kalashetram Logo"
+          onerror="this.style.display='none'; this.parentNode.style.background='#d9b8a0'; this.parentNode.innerHTML='<span style=\'font-size:2rem;font-weight:700;color:#7a3e1e;\'>CS</span>';"
+        >
+      </div>
+      <h1 class="school-name">Charukesi Sangeetha<br>Nirtha Kalashetram</h1>
+      <div class="subhead">🎵 classical • dance • tradition</div>
+    </div>
+
+    <!-- Highlights (small traits) -->
+    <div class="highlights">
+      <div class="pill"><i class="fas fa-om"></i> Sangeetham</div>
+      <div class="pill"><i class="fas fa-hands"></i> Nritham</div>
+      <div class="pill"><i class="fas fa-children"></i> All ages</div>
+    </div>
+
+    <!-- Social + contact cards (main navigation) -->
+    <div class="social-grid">
+      <!-- Instagram -->
+      <a href="https://www.instagram.com/_charukesi__?stkn=c3M4d3Ywa3FxMGd5" 
+         class="social-card instagram" 
+         target="_blank" 
+         rel="noopener noreferrer"
+         aria-label="Instagram">
+        <i class="fab fa-instagram"></i>
+        <span>Instagram</span>
+        <span class="yt-stats">@_charukesi__</span>
+      </a>
+
+      <!-- WhatsApp -->
+      <a href="https://wa.me/919656401582?text=Name%3A+%0APhone+Number%3A+%0AItem%3A+&utm_source=chatgpt.com" 
+         class="social-card whatsapp" 
+         target="_blank" 
+         rel="noopener noreferrer"
+         aria-label="WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+        <span>WhatsApp</span>
+        <span class="yt-stats">+91 96564 01582</span>
+      </a>
+
+      <!-- YouTube -->
+      <a href="https://www.youtube.com/@charukesisangeethanrithaka3836" 
+         class="social-card youtube" 
+         target="_blank" 
+         rel="noopener noreferrer"
+         aria-label="YouTube">
+        <i class="fab fa-youtube"></i>
+        <span>YouTube</span>
+        <span class="yt-stats">1.05K subscribers</span>
+      </a>
+    </div>
+
+    <!-- Quick contact & note about fetched data status -->
+    <div class="contact-row">
+      <div class="contact-item">
+        <i class="fas fa-phone-alt"></i> +91 96564 01582
+      </div>
+      <div class="contact-item">
+        <i class="fas fa-envelope"></i> info@charukesi.org
+      </div>
+      <div class="contact-item">
+        <i class="fas fa-map-marker-alt"></i> Kerala, India
+      </div>
+    </div>
+
+    <!-- Note: interpreting fetched URL content status for user (as per request) -->
+    <div class="fetch-note">
+      <i class="fas fa-info-circle"></i> 
+      <span>Logo & Instagram preview: data temporarily unavailable (Instagram 429 / logo parse). Links still active.</span>
+    </div>
+
+    <!-- Small status from YouTube fetched info (visible if needed) -->
+    <div class="footer-note">
+      <i class="fab fa-youtube" style="color:#c0392b;"></i> 
+      Charukesi Sangeetha Nritha Kalakshethram • 47 videos • 1050 subscribers
+    </div>
+  </div>
+
+  <!-- Micro interaction: just hover effects already there; no extra JS required -->
+  <script>
+    // Simple console note for the fetched data (optional)
+    (function() {
+      console.log('✨ Charukesi portal ready — Instagram link (429 status when fetched) and logo URL parse issue noted, but direct links work.');
+    })();
+  </script>
+</body>
+</html>
