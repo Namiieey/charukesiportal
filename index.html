@@ -69,7 +69,7 @@
     .portal {
       position: relative;
       z-index: 1;
-      max-width: 860px;
+      max-width: 900px;
       width: 100%;
       background: var(--card-bg);
       backdrop-filter: blur(18px) saturate(1.2);
@@ -204,11 +204,11 @@
       font-size: 0.95rem;
     }
 
-    /* === Social Cards === */
+    /* === Social Cards — now 4 items === */
     .social-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.4rem;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.1rem;
       margin: 0 0 1.5rem;
     }
 
@@ -221,8 +221,8 @@
       text-decoration: none;
       color: var(--deep-brown);
       background: linear-gradient(165deg, #ffffff 0%, #fdf7f0 100%);
-      border-radius: 1.75rem;
-      padding: 2rem 0.9rem 1.75rem;
+      border-radius: 1.6rem;
+      padding: 1.7rem 0.7rem 1.5rem;
       border: 1px solid rgba(255, 245, 235, 0.9);
       outline: 1px solid rgba(184, 134, 11, 0.18);
       outline-offset: -5px;
@@ -255,8 +255,8 @@
     }
 
     .social-card i {
-      font-size: 2.4rem;
-      margin-bottom: 0.75rem;
+      font-size: 2.15rem;
+      margin-bottom: 0.65rem;
       transition: transform 0.3s ease;
     }
 
@@ -266,15 +266,15 @@
 
     .social-card .platform {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 1.2rem;
+      font-size: 1.05rem;
       font-weight: 700;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.04em;
       color: var(--deep-brown);
       margin-bottom: 0.15rem;
     }
 
     .social-card .stat {
-      font-size: 0.72rem;
+      font-size: 0.68rem;
       font-weight: 500;
       letter-spacing: 0.03em;
       color: #8e6a55;
@@ -290,6 +290,7 @@
     .instagram i { color: #d62976; }
     .whatsapp i { color: #25D366; }
     .youtube i { color: #FF0000; }
+    .facebook i { color: #1877F2; }
 
     /* === Contact Row === */
     .contact-row {
@@ -370,6 +371,13 @@
     }
 
     /* === Responsive === */
+    @media (max-width: 780px) {
+      .social-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+      }
+    }
+
     @media (max-width: 700px) {
       .portal {
         padding: 2.25rem 1.5rem 1.75rem;
@@ -384,27 +392,17 @@
         font-size: 1.35rem;
       }
 
-      .social-grid {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 0.75rem;
-      }
-
       .social-card {
-        padding: 1.4rem 0.5rem 1.25rem;
-        border-radius: 1.35rem;
+        padding: 1.5rem 0.6rem 1.35rem;
+        border-radius: 1.4rem;
       }
 
       .social-card i {
-        font-size: 1.85rem;
-        margin-bottom: 0.5rem;
+        font-size: 1.9rem;
       }
 
       .social-card .platform {
         font-size: 1rem;
-      }
-
-      .social-card .stat {
-        font-size: 0.63rem;
       }
     }
 
@@ -517,9 +515,9 @@
       <div class="pill"><i class="fas fa-children"></i> All ages</div>
     </div>
 
-    <!-- Social cards -->
+    <!-- Social cards — 4 items -->
     <div class="social-grid">
-      <!-- Instagram — static 1,536 followers -->
+      <!-- Instagram -->
       <a href="https://www.instagram.com/_charukesi__?stkn=c3M4d3Ywa3FxMGd5" 
          class="social-card instagram" 
          target="_blank" 
@@ -530,7 +528,18 @@
         <span class="stat"><strong>1,536</strong> followers</span>
       </a>
 
-      <!-- WhatsApp (new number) -->
+      <!-- Facebook -->
+      <a href="https://www.facebook.com/people/Charukesi-Sangeetha-Nirtha-Kalakhestram/pfbid02xCZdXYoRADWoFkxPsdVipCQWRNZ7CxLaTxuMsin1S9RXitRruKszUqh4neyBBEvJl/" 
+         class="social-card facebook" 
+         target="_blank" 
+         rel="noopener noreferrer"
+         aria-label="Facebook">
+        <i class="fab fa-facebook-f"></i>
+        <span class="platform">Facebook</span>
+        <span class="stat">Charukesi Kalakhestram</span>
+      </a>
+
+      <!-- WhatsApp -->
       <a href="https://wa.me/918111884177?text=Name%3A+%0APhone+Number%3A+%0AItem%3A+&utm_source=chatgpt.com" 
          class="social-card whatsapp" 
          target="_blank" 
@@ -553,7 +562,7 @@
       </a>
     </div>
 
-    <!-- Contact row (updated email and location) -->
+    <!-- Contact row -->
     <div class="contact-row">
       <div class="contact-item">
         <i class="fas fa-phone-alt"></i> +91 81118 84177
@@ -576,7 +585,7 @@
 
   <script>
     (function() {
-      console.log('✨ Charukesi portal — email & location updated. Modern classic UI.');
+      console.log('✨ Charukesi portal — Facebook added. Modern classic UI with 4 social cards.');
     })();
   </script>
 </body>
