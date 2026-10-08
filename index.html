@@ -442,6 +442,247 @@
       color: var(--line-2);
     }
 
+    /* ============================================ */
+    /* === ENHANCED FULLSCREEN MOTION POPUP === */
+    /* ============================================ */
+
+    .cinema-overlay {
+      position: fixed;
+      inset: 0;
+      background: #0a0806;
+      z-index: 9999;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.6s ease, visibility 0.6s ease;
+      overflow: hidden;
+    }
+
+    .cinema-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* Ambient background glow */
+    .cinema-overlay::before {
+      content: '';
+      position: absolute;
+      inset: -20%;
+      background:
+        radial-gradient(circle at 30% 30%, rgba(183, 89, 42, 0.15), transparent 50%),
+        radial-gradient(circle at 70% 70%, rgba(196, 154, 74, 0.12), transparent 50%);
+      animation: ambientDrift 12s ease-in-out infinite alternate;
+      pointer-events: none;
+    }
+
+    @keyframes ambientDrift {
+      0% { transform: scale(1) rotate(0deg); opacity: 0.8; }
+      100% { transform: scale(1.15) rotate(3deg); opacity: 1; }
+    }
+
+    /* Vignette frame */
+    .cinema-overlay::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at center, transparent 30%, rgba(10, 8, 6, 0.7) 100%);
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    /* Fullscreen image stage */
+    .cinema-stage {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem;
+      z-index: 1;
+    }
+
+    .cinema-image-wrap {
+      position: relative;
+      max-width: 100%;
+      max-height: 100%;
+      opacity: 0;
+      transform: scale(0.85) translateY(30px);
+      transition:
+        opacity 1s cubic-bezier(0.2, 0.8, 0.3, 1),
+        transform 1.1s cubic-bezier(0.2, 0.8, 0.3, 1);
+      will-change: transform, opacity;
+    }
+
+    .cinema-overlay.active .cinema-image-wrap {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+
+    /* Subtle Ken Burns effect on the image */
+    .cinema-overlay.active .cinema-image {
+      animation: kenBurns 18s ease-in-out infinite alternate;
+    }
+
+    @keyframes kenBurns {
+      0% { transform: scale(1) translate(0, 0); }
+      100% { transform: scale(1.06) translate(-1%, -1%); }
+    }
+
+    .cinema-image {
+      display: block;
+      max-width: 100%;
+      max-height: calc(100vh - 6rem);
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      border-radius: 8px;
+      box-shadow:
+        0 0 0 1px rgba(196, 154, 74, 0.2),
+        0 40px 100px -30px rgba(0, 0, 0, 0.9),
+        0 0 120px -20px rgba(183, 89, 42, 0.3);
+      transition: box-shadow 0.6s ease;
+    }
+
+    /* Decorative corner brackets */
+    .cinema-corner {
+      position: absolute;
+      width: 32px;
+      height: 32px;
+      border-color: var(--gold);
+      border-style: solid;
+      opacity: 0;
+      transition: opacity 0.8s ease 0.6s;
+      z-index: 3;
+      pointer-events: none;
+    }
+
+    .cinema-overlay.active .cinema-corner {
+      opacity: 0.55;
+    }
+
+    .cinema-corner.tl { top: 1.5rem; left: 1.5rem; border-width: 1px 0 0 1px; }
+    .cinema-corner.tr { top: 1.5rem; right: 1.5rem; border-width: 1px 1px 0 0; }
+    .cinema-corner.bl { bottom: 1.5rem; left: 1.5rem; border-width: 0 0 1px 1px; }
+    .cinema-corner.br { bottom: 1.5rem; right: 1.5rem; border-width: 0 1px 1px 0; }
+
+    /* Animated top/bottom bars for cinematic feel */
+    .cinema-bar {
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      opacity: 0;
+      z-index: 3;
+      pointer-events: none;
+    }
+
+    .cinema-bar.top { top: 0; }
+    .cinema-bar.bottom { bottom: 0; }
+
+    .cinema-overlay.active .cinema-bar {
+      animation: barSweep 1.4s cubic-bezier(0.2, 0.8, 0.3, 1) 0.3s forwards;
+    }
+
+    .cinema-overlay.active .cinema-bar.bottom {
+      animation-delay: 0.5s;
+    }
+
+    @keyframes barSweep {
+      0% { opacity: 0; transform: scaleX(0); }
+      50% { opacity: 0.8; }
+      100% { opacity: 0.25; transform: scaleX(1); }
+    }
+
+    /* Enhanced close button */
+    .cinema-close {
+      position: absolute;
+      top: 1.75rem;
+      right: 1.75rem;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(196, 154, 74, 0.35);
+      color: #fff;
+      font-size: 1.05rem;
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      z-index: 10;
+      opacity: 0;
+      transform: scale(0.7) rotate(-90deg);
+      transition:
+        opacity 0.6s ease 0.9s,
+        transform 0.6s cubic-bezier(0.2, 0.9, 0.3, 1.1) 0.9s,
+        background 0.3s ease,
+        border-color 0.3s ease;
+    }
+
+    .cinema-overlay.active .cinema-close {
+      opacity: 1;
+      transform: scale(1) rotate(0deg);
+    }
+
+    .cinema-close:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+      transform: scale(1.1) rotate(90deg);
+    }
+
+    .cinema-close:active {
+      transform: scale(0.95) rotate(90deg);
+    }
+
+    /* Pulsing ring around close button */
+    .cinema-close::after {
+      content: '';
+      position: absolute;
+      inset: -4px;
+      border-radius: 50%;
+      border: 1px solid rgba(196, 154, 74, 0.4);
+      animation: pulseRing 2.5s ease-out infinite;
+      pointer-events: none;
+    }
+
+    @keyframes pulseRing {
+      0% { transform: scale(1); opacity: 0.6; }
+      100% { transform: scale(1.4); opacity: 0; }
+    }
+
+    /* Hint text at bottom */
+    .cinema-hint {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%) translateY(10px);
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.4);
+      opacity: 0;
+      transition: opacity 0.8s ease 1.3s, transform 0.8s ease 1.3s;
+      z-index: 3;
+      white-space: nowrap;
+    }
+
+    .cinema-overlay.active .cinema-hint {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* Grain texture overlay for cinematic feel */
+    .cinema-grain {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      pointer-events: none;
+      opacity: 0.06;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+
     /* === RESPONSIVE === */
     @media (max-width: 460px) {
       body {
@@ -507,6 +748,39 @@
       .website-sub {
         font-size: 0.63rem;
       }
+
+      /* Cinematic popup mobile adjustments */
+      .cinema-stage {
+        padding: 1.5rem;
+      }
+
+      .cinema-image {
+        max-height: calc(100vh - 8rem);
+      }
+
+      .cinema-close {
+        top: 1rem;
+        right: 1rem;
+        width: 44px;
+        height: 44px;
+        font-size: 0.95rem;
+      }
+
+      .cinema-corner {
+        width: 22px;
+        height: 22px;
+      }
+
+      .cinema-corner.tl { top: 0.85rem; left: 0.85rem; }
+      .cinema-corner.tr { top: 0.85rem; right: 0.85rem; }
+      .cinema-corner.bl { bottom: 0.85rem; left: 0.85rem; }
+      .cinema-corner.br { bottom: 0.85rem; right: 0.85rem; }
+
+      .cinema-hint {
+        font-size: 0.6rem;
+        bottom: 1.25rem;
+        letter-spacing: 0.18em;
+      }
     }
 
     @media (max-width: 340px) {
@@ -514,9 +788,71 @@
         display: none;
       }
     }
+
+    /* Reduced motion preference */
+    @media (prefers-reduced-motion: reduce) {
+      .cinema-overlay.active .cinema-image {
+        animation: none;
+      }
+      .cinema-overlay::before {
+        animation: none;
+      }
+      .cinema-close::after {
+        animation: none;
+      }
+      .cinema-image-wrap {
+        transition: opacity 0.4s ease;
+        transform: none;
+      }
+      .cinema-overlay.active .cinema-image-wrap {
+        transform: none;
+      }
+    }
   </style>
 </head>
 <body>
+
+  <!-- ============================================ -->
+  <!-- === ENHANCED FULLSCREEN MOTION POPUP === -->
+  <!-- ============================================ -->
+  <div class="cinema-overlay" id="cinemaOverlay" role="dialog" aria-modal="true" aria-label="Welcome announcement">
+    <!-- Ambient glow -->
+    <div class="cinema-grain"></div>
+
+    <!-- Cinematic bars -->
+    <div class="cinema-bar top"></div>
+    <div class="cinema-bar bottom"></div>
+
+    <!-- Decorative corner brackets -->
+    <div class="cinema-corner tl"></div>
+    <div class="cinema-corner tr"></div>
+    <div class="cinema-corner bl"></div>
+    <div class="cinema-corner br"></div>
+
+    <!-- Fullscreen image stage -->
+    <div class="cinema-stage">
+      <div class="cinema-image-wrap">
+        <img
+          class="cinema-image"
+          src="https://plain-apac-prod-public.komododecks.com/202610/08/FUpp60PuQDgvI2DSAz8L/image.png"
+          alt="Charukesi Announcement"
+          onerror="this.style.display='none'; this.parentNode.innerHTML='<div style=\'padding:4rem 2.5rem;text-align:center;color:rgba(255,255,255,0.5);font-size:0.95rem;border:1px dashed rgba(196,154,74,0.3);border-radius:12px;\'><i class=\'fas fa-image\' style=\'font-size:2.5rem;display:block;margin-bottom:1rem;opacity:0.4;\'></i>Image unavailable</div>';"
+        >
+      </div>
+    </div>
+
+    <!-- Close button -->
+    <button class="cinema-close" id="cinemaClose" aria-label="Close announcement">
+      <i class="fas fa-times"></i>
+    </button>
+
+    <!-- Hint -->
+    <div class="cinema-hint">Press ESC or tap outside to close</div>
+  </div>
+
+  <!-- ============================================ -->
+  <!-- === PORTAL === -->
+  <!-- ============================================ -->
   <div class="portal">
 
     <!-- === IDENTITY === -->
@@ -655,7 +991,81 @@
 
   <script>
     (function () {
-      console.log('✨ Charukesi portal — classic minimalistic UI loaded.');
+      'use strict';
+
+      const overlay = document.getElementById('cinemaOverlay');
+      const closeBtn = document.getElementById('cinemaClose');
+      let popupShown = false;
+      let scrollY = 0;
+
+      // Lock body scroll while popup is open
+      function lockScroll() {
+        scrollY = window.scrollY || window.pageYOffset;
+        document.body.style.position = 'fixed';
+        document.body.style.top = `-${scrollY}px`;
+        document.body.style.width = '100%';
+        document.body.style.overflow = 'hidden';
+      }
+
+      function unlockScroll() {
+        document.body.style.position = '';
+        document.body.style.top = '';
+        document.body.style.width = '';
+        document.body.style.overflow = '';
+        window.scrollTo(0, scrollY);
+      }
+
+      // Show popup with cinematic entrance
+      function showPopup() {
+        if (popupShown || !overlay) return;
+        popupShown = true;
+        lockScroll();
+        // Small delay for a smooth entrance after page paint
+        setTimeout(() => {
+          overlay.classList.add('active');
+        }, 350);
+      }
+
+      // Hide popup with smooth exit
+      function hidePopup() {
+        if (!overlay) return;
+        overlay.classList.remove('active');
+        // Restore scroll after the transition completes
+        setTimeout(() => {
+          unlockScroll();
+        }, 600);
+      }
+
+      // Close on button click
+      if (closeBtn) {
+        closeBtn.addEventListener('click', hidePopup);
+      }
+
+      // Close when clicking the dark backdrop (but not the image or close button)
+      if (overlay) {
+        overlay.addEventListener('click', (e) => {
+          // Only close if clicking directly on the overlay background
+          if (e.target === overlay) {
+            hidePopup();
+          }
+        });
+      }
+
+      // Close on Escape key
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && overlay && overlay.classList.contains('active')) {
+          hidePopup();
+        }
+      });
+
+      // Trigger popup once the page is fully loaded
+      if (document.readyState === 'complete') {
+        showPopup();
+      } else {
+        window.addEventListener('load', showPopup);
+      }
+
+      console.log('✨ Charukesi portal — enhanced cinematic fullscreen popup loaded.');
     })();
   </script>
 </body>
