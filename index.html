@@ -2,35 +2,32 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
   <title>Charukesi Sangeetha Nirtha Kalashetram</title>
+
+  <!-- Favicon - School Logo -->
+  <link rel="icon" type="image/png" href="https://yt3.googleusercontent.com/t33AylQnyI7NN65ZTU2Y5tK9ZEhwlzO6oLAwAu0vOMoKjVELT3tnRnWhJqIW11lU3DaYU81IsKA=s160-c-k-c0x00ffffff-no-rj">
+  <link rel="apple-touch-icon" href="https://yt3.googleusercontent.com/t33AylQnyI7NN65ZTU2Y5tK9ZEhwlzO6oLAwAu0vOMoKjVELT3tnRnWhJqIW11lU3DaYU81IsKA=s160-c-k-c0x00ffffff-no-rj">
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Marcellus&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
     }
 
     :root {
-      /* Olive Green Theme */
-      --olive-50: #f6f7f0;
-      --olive-100: #eaecdb;
-      --olive-200: #d5d9b8;
-      --olive-300: #b8bf8b;
-      --olive-400: #9ba665;
       --olive-500: #7e8b47;
       --olive-600: #626d37;
       --olive-700: #4c542c;
-      --olive-800: #3d4326;
-      --olive-900: #343a23;
-      --olive-950: #1a1e11;
-
       --amber: #d4a24e;
-      --amber-soft: #e8c283;
       --amber-deep: #a8762f;
       --rose: #c47a6b;
 
@@ -49,11 +46,8 @@
       --ink-2: #4a5236;
       --muted: #8a9270;
 
-      --radius: 18px;
       --radius-sm: 13px;
-      --shadow-xs: 0 1px 2px rgba(31, 36, 22, 0.04);
       --shadow-sm: 0 4px 16px -6px rgba(31, 36, 22, 0.12);
-      --shadow-md: 0 12px 32px -14px rgba(31, 36, 22, 0.18);
       --shadow-lg: 0 28px 64px -28px rgba(31, 36, 22, 0.28);
       --shadow-glow: 0 0 60px -20px rgba(126, 139, 71, 0.4);
 
@@ -170,8 +164,8 @@
       padding: 2.75rem 2rem 1.75rem;
       transition: box-shadow 0.6s var(--ease), border-color 0.6s var(--ease);
       opacity: 0;
-      transform: translateY(24px) scale(0.98);
-      animation: portalEnter 1.3s var(--ease) 0.5s forwards;
+      transform: translateY(20px) scale(0.98);
+      animation: portalEnter 1.1s var(--ease) 0.2s forwards;
     }
 
     @keyframes portalEnter {
@@ -290,7 +284,7 @@
       content: '';
       width: 20px;
       height: 1px;
-      background: linear-gradient(90deg, transparent, var(--olive-300), transparent);
+      background: linear-gradient(90deg, transparent, var(--olive-300, #b8bf8b), transparent);
     }
 
     /* === ORNAMENT === */
@@ -393,18 +387,10 @@
       transform: scale(1.08) rotate(-3deg);
     }
 
-    .social-icon.instagram {
-      background: linear-gradient(135deg, #feda75 0%, #d62976 50%, #962fbf 100%);
-    }
-    .social-icon.facebook {
-      background: linear-gradient(135deg, #1877F2, #0d5dbf);
-    }
-    .social-icon.whatsapp {
-      background: linear-gradient(135deg, #25D366, #128C7E);
-    }
-    .social-icon.youtube {
-      background: linear-gradient(135deg, #FF0000, #c4302b);
-    }
+    .social-icon.instagram { background: linear-gradient(135deg, #feda75 0%, #d62976 50%, #962fbf 100%); }
+    .social-icon.facebook { background: linear-gradient(135deg, #1877F2, #0d5dbf); }
+    .social-icon.whatsapp { background: linear-gradient(135deg, #25D366, #128C7E); }
+    .social-icon.youtube { background: linear-gradient(135deg, #FF0000, #c4302b); }
 
     .social-body {
       flex: 1;
@@ -530,9 +516,7 @@
       transition: opacity 0.45s var(--ease);
     }
 
-    .website-btn:hover::before {
-      opacity: 1;
-    }
+    .website-btn:hover::before { opacity: 1; }
 
     .website-btn:hover {
       transform: translateY(-2px);
@@ -561,10 +545,7 @@
       border-color: rgba(255, 255, 255, 1);
     }
 
-    .website-text {
-      flex: 1;
-      min-width: 0;
-    }
+    .website-text { flex: 1; min-width: 0; }
 
     .website-label {
       display: block;
@@ -585,9 +566,7 @@
     }
 
     .website-btn:hover .website-label,
-    .website-btn:hover .website-sub {
-      color: #fff;
-    }
+    .website-btn:hover .website-sub { color: #fff; }
 
     .website-arrow {
       font-size: 0.72rem;
@@ -618,432 +597,194 @@
     }
 
     /* ============================================ */
-    /* === ENHANCED CINEMATIC FULLSCREEN POPUP === */
+    /* === FULLSCREEN ANNOUNCEMENT POPUP === */
     /* ============================================ */
 
-    .cinema-overlay {
+    .popup-overlay {
       position: fixed;
       inset: 0;
-      background: #0e1206;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.92);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
       z-index: 9999;
       opacity: 0;
       visibility: hidden;
-      transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1),
-                  visibility 1s cubic-bezier(0.4, 0, 0.2, 1);
-      overflow: hidden;
+      transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      padding: 1rem;
     }
 
-    .cinema-overlay.active {
+    .popup-overlay:not(.hidden) {
       opacity: 1;
       visibility: visible;
     }
 
-    /* Layered olive/amber ambient glow */
-    .cinema-overlay::before {
-      content: '';
-      position: absolute;
-      inset: -25%;
-      background:
-        radial-gradient(circle at 22% 22%, rgba(154, 166, 101, 0.22), transparent 55%),
-        radial-gradient(circle at 78% 78%, rgba(212, 162, 78, 0.18), transparent 55%),
-        radial-gradient(circle at 50% 50%, rgba(126, 139, 71, 0.15), transparent 60%);
-      animation: ambientBreath 22s ease-in-out infinite alternate;
+    .popup-overlay.hidden {
+      opacity: 0;
+      visibility: hidden;
       pointer-events: none;
     }
 
-    @keyframes ambientBreath {
-      0% { transform: scale(1); opacity: 0.7; }
-      100% { transform: scale(1.18); opacity: 1; }
+    .popup-content {
+      position: relative;
+      max-width: 95vw;
+      max-height: 95vh;
+      border-radius: 32px;
+      overflow: hidden;
+      box-shadow:
+        0 50px 80px -24px rgba(0, 0, 0, 0.8),
+        0 0 0 1px rgba(255, 255, 255, 0.08),
+        0 0 60px -12px rgba(139, 94, 60, 0.25);
+      background: #0a0a0a;
+      line-height: 0;
+      animation: popIn 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+      border: 1px solid rgba(255, 255, 255, 0.1);
     }
 
-    /* Deep vignette */
-    .cinema-overlay::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(ellipse at center, transparent 28%, rgba(14, 18, 6, 0.88) 100%);
-      pointer-events: none;
-      z-index: 2;
+    .popup-content img {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-height: 90vh;
+      object-fit: contain;
+      background: #0a0a0a;
+      border-radius: 32px;
     }
 
-    .cinema-stage {
+    .close-btn {
       position: absolute;
-      inset: 0;
+      top: 16px;
+      right: 16px;
+      background: rgba(20, 20, 20, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: #ffffff;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 3.5rem;
-      z-index: 1;
-    }
-
-    .cinema-image-wrap {
-      position: relative;
-      max-width: 100%;
-      max-height: 100%;
-      opacity: 0;
-      transform: scale(0.9);
-      transition:
-        opacity 1.4s cubic-bezier(0.16, 1, 0.3, 1),
-        transform 1.6s cubic-bezier(0.16, 1, 0.3, 1);
-      will-change: transform, opacity;
-    }
-
-    .cinema-overlay.active .cinema-image-wrap {
-      opacity: 1;
-      transform: scale(1);
-    }
-
-    /* Soft glow ring behind image */
-    .cinema-image-wrap::before {
-      content: '';
-      position: absolute;
-      inset: -40px;
-      border-radius: 24px;
-      background: radial-gradient(ellipse at center, rgba(212, 162, 78, 0.2), transparent 70%);
-      opacity: 0;
-      transition: opacity 1.5s ease 0.6s;
-      pointer-events: none;
-      z-index: -1;
-      filter: blur(20px);
-    }
-
-    .cinema-overlay.active .cinema-image-wrap::before {
-      opacity: 1;
-    }
-
-    .cinema-overlay.active .cinema-image {
-      animation: gentlePan 30s ease-in-out infinite alternate;
-    }
-
-    @keyframes gentlePan {
-      0% { transform: scale(1) translate(0, 0); }
-      100% { transform: scale(1.06) translate(-0.9%, -0.9%); }
-    }
-
-    .cinema-image {
-      display: block;
-      max-width: 100%;
-      max-height: calc(100vh - 7rem);
-      width: auto;
-      height: auto;
-      object-fit: contain;
-      border-radius: 10px;
-      box-shadow:
-        0 0 0 1px rgba(212, 162, 78, 0.25),
-        0 60px 140px -45px rgba(0, 0, 0, 0.98),
-        0 0 120px -25px rgba(154, 166, 101, 0.35),
-        0 0 80px -20px rgba(212, 162, 78, 0.3);
-      transition: box-shadow 1s ease;
-    }
-
-    /* Enhanced gold corner brackets */
-    .cinema-corner {
-      position: absolute;
-      width: 36px;
-      height: 36px;
-      border-color: var(--amber);
-      border-style: solid;
-      opacity: 0;
-      transition: opacity 1.3s ease 0.85s, transform 1.3s var(--ease) 0.85s;
-      z-index: 3;
-      pointer-events: none;
-      filter: drop-shadow(0 0 10px rgba(212, 162, 78, 0.6));
-      transform: scale(0.7);
-    }
-
-    .cinema-overlay.active .cinema-corner {
-      opacity: 0.65;
-      transform: scale(1);
-    }
-
-    .cinema-corner.tl { top: 1.75rem; left: 1.75rem; border-width: 2px 0 0 2px; }
-    .cinema-corner.tr { top: 1.75rem; right: 1.75rem; border-width: 2px 2px 0 0; }
-    .cinema-corner.bl { bottom: 1.75rem; left: 1.75rem; border-width: 0 0 2px 2px; }
-    .cinema-corner.br { bottom: 1.75rem; right: 1.75rem; border-width: 0 2px 2px 0; }
-
-    /* Enhanced close button */
-    .cinema-close {
-      position: absolute;
-      top: 1.75rem;
-      right: 1.75rem;
-      width: 54px;
-      height: 54px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.06);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1.5px solid rgba(212, 162, 78, 0.45);
-      color: #fff;
-      font-size: 1rem;
-      display: grid;
-      place-items: center;
+      font-size: 2rem;
+      font-weight: 300;
       cursor: pointer;
+      transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      line-height: 1;
       z-index: 10;
-      opacity: 0;
-      transform: scale(0.75) rotate(-90deg);
-      transition:
-        opacity 0.9s ease 1.2s,
-        transform 1s cubic-bezier(0.16, 1, 0.3, 1) 1.2s,
-        background 0.45s ease,
-        border-color 0.45s ease,
-        box-shadow 0.45s ease;
+      box-shadow:
+        0 6px 20px rgba(0, 0, 0, 0.5),
+        0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+      font-family: 'Inter', sans-serif;
+      padding: 0;
     }
 
-    .cinema-overlay.active .cinema-close {
-      opacity: 1;
-      transform: scale(1) rotate(0deg);
-    }
-
-    /* Pulsing ring around close */
-    .cinema-close::before {
-      content: '';
-      position: absolute;
-      inset: -5px;
-      border-radius: 50%;
-      border: 1px solid rgba(212, 162, 78, 0.4);
-      animation: pulseRing 3s ease-out infinite;
-      pointer-events: none;
-    }
-
-    @keyframes pulseRing {
-      0% { transform: scale(1); opacity: 0.7; }
-      100% { transform: scale(1.35); opacity: 0; }
-    }
-
-    .cinema-close:hover {
-      background: var(--amber);
-      border-color: var(--amber);
-      color: var(--olive-950);
+    .close-btn:hover {
+      background: rgba(139, 94, 60, 0.9);
       transform: scale(1.1) rotate(90deg);
-      box-shadow: 0 0 40px -8px rgba(212, 162, 78, 0.8);
+      border-color: rgba(255, 220, 180, 0.6);
+      box-shadow:
+        0 8px 28px rgba(139, 94, 60, 0.5),
+        0 0 0 1px rgba(255, 220, 180, 0.3) inset;
     }
 
-    .cinema-close:active {
+    .close-btn:active {
       transform: scale(0.95) rotate(90deg);
     }
 
-    .cinema-close i {
-      transition: transform 0.45s var(--ease);
+    .close-btn:focus-visible {
+      outline: 2px solid #d4b99b;
+      outline-offset: 3px;
     }
 
-    /* Enhanced hint with decorative dots */
-    .cinema-hint {
-      position: absolute;
-      bottom: 2.35rem;
-      left: 50%;
-      transform: translateX(-50%) translateY(10px);
-      display: flex;
-      align-items: center;
-      gap: 0.85rem;
-      font-size: 0.6rem;
-      font-weight: 400;
-      letter-spacing: 0.32em;
-      text-transform: uppercase;
-      color: rgba(255, 255, 255, 0.35);
-      opacity: 0;
-      transition: opacity 1.2s ease 1.7s, transform 1.2s ease 1.7s;
-      z-index: 3;
-      white-space: nowrap;
-    }
-
-    .cinema-hint::before,
-    .cinema-hint::after {
-      content: '';
-      width: 28px;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(212, 162, 78, 0.5), transparent);
-    }
-
-    .cinema-overlay.active .cinema-hint {
-      opacity: 1;
-      transform: translateX(-50%) translateY(0);
-    }
-
-    /* Progress bar at top */
-    .cinema-progress {
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 2px;
-      width: 0;
-      background: linear-gradient(90deg, var(--olive-500), var(--amber));
-      box-shadow: 0 0 12px rgba(212, 162, 78, 0.7);
-      z-index: 10;
-      opacity: 0;
-      transition: opacity 0.5s ease;
-    }
-
-    .cinema-overlay.active .cinema-progress {
-      opacity: 1;
-      animation: progressFill 3s cubic-bezier(0.4, 0, 0.2, 1) 0.8s forwards;
-    }
-
-    @keyframes progressFill {
-      to { width: 100%; opacity: 0; }
-    }
-
-    /* Floating decorative particles */
-    .cinema-particles {
-      position: absolute;
-      inset: 0;
-      z-index: 3;
-      pointer-events: none;
-      overflow: hidden;
-    }
-
-    .particle {
-      position: absolute;
-      width: 3px;
-      height: 3px;
-      border-radius: 50%;
-      background: var(--amber);
-      opacity: 0;
-      box-shadow: 0 0 8px rgba(212, 162, 78, 0.8);
-      animation: particleFloat 12s ease-in-out infinite;
-    }
-
-    .particle:nth-child(1) { top: 20%; left: 15%; animation-delay: 0s; }
-    .particle:nth-child(2) { top: 70%; left: 25%; animation-delay: -2s; }
-    .particle:nth-child(3) { top: 30%; left: 80%; animation-delay: -4s; }
-    .particle:nth-child(4) { top: 80%; left: 70%; animation-delay: -6s; }
-    .particle:nth-child(5) { top: 50%; left: 45%; animation-delay: -8s; }
-    .particle:nth-child(6) { top: 15%; left: 60%; animation-delay: -10s; }
-
-    @keyframes particleFloat {
-      0%, 100% { transform: translate(0, 0) scale(0); opacity: 0; }
-      20% { opacity: 0.8; transform: scale(1); }
-      50% { transform: translate(30px, -40px) scale(1.2); opacity: 0.6; }
-      80% { opacity: 0.4; transform: scale(0.8); }
-    }
-
-    .cinema-grain {
-      position: absolute;
-      inset: 0;
-      z-index: 2;
-      pointer-events: none;
-      opacity: 0.055;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    @keyframes popIn {
+      0% { transform: scale(0.9) translateY(20px); opacity: 0; }
+      100% { transform: scale(1) translateY(0); opacity: 1; }
     }
 
     /* === RESPONSIVE === */
-    @media (max-width: 460px) {
-      body {
-        padding: 1rem;
+    @media (max-width: 640px) {
+      .popup-content,
+      .popup-content img {
+        border-radius: 24px;
       }
+
+      .close-btn {
+        width: 44px;
+        height: 44px;
+        font-size: 1.7rem;
+        top: 12px;
+        right: 12px;
+      }
+    }
+
+    @media (max-width: 460px) {
+      body { padding: 1rem; }
 
       .portal {
         padding: 2.3rem 1.4rem 1.55rem;
         border-radius: 22px;
       }
 
-      .logo-frame {
-        width: 84px;
-        height: 84px;
-      }
-
-      .school-name {
-        font-size: 1.65rem;
-      }
-
-      .school-name span {
-        font-size: 1.02rem;
-      }
+      .logo-frame { width: 84px; height: 84px; }
+      .school-name { font-size: 1.65rem; }
+      .school-name span { font-size: 1.02rem; }
 
       .social-link {
         padding: 0.74rem 0.9rem;
         gap: 0.85rem;
       }
 
-      .social-icon {
-        width: 33px;
-        height: 33px;
-        font-size: 0.92rem;
-      }
-
-      .social-name {
-        font-size: 0.82rem;
-      }
-
-      .social-meta {
-        font-size: 0.66rem;
-      }
+      .social-icon { width: 33px; height: 33px; font-size: 0.92rem; }
+      .social-name { font-size: 0.82rem; }
+      .social-meta { font-size: 0.66rem; }
 
       .website-btn {
         padding: 0.76rem 1rem;
         gap: 0.72rem;
       }
 
-      .website-logo {
-        width: 31px;
-        height: 31px;
+      .website-logo { width: 31px; height: 31px; }
+      .website-label { font-size: 0.82rem; }
+      .website-sub { font-size: 0.62rem; }
+    }
+
+    @media (max-width: 400px) {
+      .popup-overlay { padding: 0.5rem; }
+
+      .popup-content,
+      .popup-content img {
+        border-radius: 20px;
       }
 
-      .website-label {
-        font-size: 0.82rem;
+      .popup-content {
+        max-width: 98vw;
+        max-height: 90vh;
       }
 
-      .website-sub {
-        font-size: 0.62rem;
-      }
+      .popup-content img { max-height: 85vh; }
 
-      .cinema-stage {
-        padding: 1.75rem;
-      }
-
-      .cinema-image {
-        max-height: calc(100vh - 9rem);
-      }
-
-      .cinema-close {
-        top: 1rem;
-        right: 1rem;
-        width: 46px;
-        height: 46px;
-        font-size: 0.9rem;
-      }
-
-      .cinema-corner {
-        width: 24px;
-        height: 24px;
-      }
-
-      .cinema-corner.tl { top: 0.9rem; left: 0.9rem; }
-      .cinema-corner.tr { top: 0.9rem; right: 0.9rem; }
-      .cinema-corner.bl { bottom: 0.9rem; left: 0.9rem; }
-      .cinema-corner.br { bottom: 0.9rem; right: 0.9rem; }
-
-      .cinema-hint {
-        font-size: 0.55rem;
-        bottom: 1.4rem;
-        letter-spacing: 0.22em;
-      }
-
-      .cinema-hint::before,
-      .cinema-hint::after {
-        width: 18px;
+      .close-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1.5rem;
+        top: 10px;
+        right: 10px;
       }
     }
 
     @media (max-width: 340px) {
-      .social-meta {
-        display: none;
-      }
+      .social-meta { display: none; }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      .cinema-overlay.active .cinema-image,
-      .cinema-overlay::before,
-      .orb,
-      .particle,
-      .cinema-close::before {
-        animation: none;
-      }
-      .cinema-image-wrap {
-        transition: opacity 0.5s ease;
-        transform: none;
-      }
-      .cinema-overlay.active .cinema-image-wrap {
-        transform: none;
+      * {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
       }
       .portal {
         animation: none;
@@ -1055,51 +796,21 @@
 </head>
 <body>
 
+  <!-- ============================================ -->
+  <!-- === FULLSCREEN ANNOUNCEMENT POPUP === -->
+  <!-- ============================================ -->
+  <div class="popup-overlay hidden" id="announcementPopup">
+    <div class="popup-content">
+      <button class="close-btn" id="closePopupBtn" aria-label="Close announcement">&times;</button>
+      <img src="https://plain-apac-prod-public.komododecks.com/202610/08/FUpp60PuQDgvI2DSAz8L/image.png" alt="Charukesi announcement – motion picture">
+    </div>
+  </div>
+
   <!-- === OLIVE AMBIENT BACKGROUND === -->
   <div class="ambient">
     <div class="orb orb-1"></div>
     <div class="orb orb-2"></div>
     <div class="orb orb-3"></div>
-  </div>
-
-  <!-- ============================================ -->
-  <!-- === ENHANCED CINEMATIC FULLSCREEN POPUP === -->
-  <!-- ============================================ -->
-  <div class="cinema-overlay" id="cinemaOverlay" role="dialog" aria-modal="true" aria-label="Welcome announcement">
-    <div class="cinema-progress"></div>
-    <div class="cinema-grain"></div>
-
-    <!-- Floating particles -->
-    <div class="cinema-particles">
-      <div class="particle"></div>
-      <div class="particle"></div>
-      <div class="particle"></div>
-      <div class="particle"></div>
-      <div class="particle"></div>
-      <div class="particle"></div>
-    </div>
-
-    <div class="cinema-corner tl"></div>
-    <div class="cinema-corner tr"></div>
-    <div class="cinema-corner bl"></div>
-    <div class="cinema-corner br"></div>
-
-    <div class="cinema-stage">
-      <div class="cinema-image-wrap">
-        <img
-          class="cinema-image"
-          src="https://plain-apac-prod-public.komododecks.com/202610/08/FUpp60PuQDgvI2DSAz8L/image.png"
-          alt="Charukesi Announcement"
-          onerror="this.style.display='none'; this.parentNode.innerHTML='<div style=\'padding:4rem 2.5rem;text-align:center;color:rgba(255,255,255,0.5);font-size:0.9rem;border:1px dashed rgba(212,162,78,0.35);border-radius:14px;font-weight:300;letter-spacing:0.05em;background:rgba(255,255,255,0.03);\'><i class=\'fas fa-image\' style=\'font-size:2.2rem;display:block;margin-bottom:1rem;opacity:0.4;\'></i>Image unavailable</div>';"
-        >
-      </div>
-    </div>
-
-    <button class="cinema-close" id="cinemaClose" aria-label="Close announcement">
-      <i class="fas fa-times"></i>
-    </button>
-
-    <div class="cinema-hint">Press ESC or tap outside</div>
   </div>
 
   <!-- ============================================ -->
@@ -1242,72 +953,52 @@
   </div>
 
   <script>
-    (function () {
+    (function() {
       'use strict';
 
-      const overlay = document.getElementById('cinemaOverlay');
-      const closeBtn = document.getElementById('cinemaClose');
-      let popupShown = false;
-      let scrollY = 0;
+      /* ============================================ */
+      /* === FULLSCREEN ANNOUNCEMENT POPUP === */
+      /* ============================================ */
 
-      function lockScroll() {
-        scrollY = window.scrollY || window.pageYOffset;
-        document.body.style.position = 'fixed';
-        document.body.style.top = `-${scrollY}px`;
-        document.body.style.width = '100%';
-        document.body.style.overflow = 'hidden';
-      }
+      const popup = document.getElementById('announcementPopup');
+      const closeBtn = document.getElementById('closePopupBtn');
+      const popupContent = document.querySelector('.popup-content');
 
-      function unlockScroll() {
-        document.body.style.position = '';
-        document.body.style.top = '';
-        document.body.style.width = '';
-        document.body.style.overflow = '';
-        window.scrollTo(0, scrollY);
-      }
+      // Show popup shortly after page load
+      window.addEventListener('load', function() {
+        setTimeout(function() {
+          popup.classList.remove('hidden');
+        }, 700);
+      });
 
-      function showPopup() {
-        if (popupShown || !overlay) return;
-        popupShown = true;
-        lockScroll();
-        setTimeout(() => {
-          overlay.classList.add('active');
-        }, 650);
-      }
+      // Close on button click
+      closeBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        popup.classList.add('hidden');
+      });
 
-      function hidePopup() {
-        if (!overlay) return;
-        overlay.classList.remove('active');
-        setTimeout(() => {
-          unlockScroll();
-        }, 1000);
-      }
-
-      if (closeBtn) {
-        closeBtn.addEventListener('click', hidePopup);
-      }
-
-      if (overlay) {
-        overlay.addEventListener('click', (e) => {
-          if (e.target === overlay) {
-            hidePopup();
-          }
-        });
-      }
-
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && overlay && overlay.classList.contains('active')) {
-          hidePopup();
+      // Close on background click
+      popup.addEventListener('click', function(e) {
+        if (e.target === popup) {
+          popup.classList.add('hidden');
         }
       });
 
-      if (document.readyState === 'complete') {
-        showPopup();
-      } else {
-        window.addEventListener('load', showPopup);
+      // Close on Escape key
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && !popup.classList.contains('hidden')) {
+          popup.classList.add('hidden');
+        }
+      });
+
+      // Prevent clicks inside content from closing
+      if (popupContent) {
+        popupContent.addEventListener('click', function(e) {
+          e.stopPropagation();
+        });
       }
 
-      console.log('✨ Charukesi portal — olive green theme with enhanced announcement UI.');
+      console.log('✨ Charukesi portal — fullscreen announcement popup integrated.');
     })();
   </script>
 </body>
